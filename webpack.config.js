@@ -4,18 +4,20 @@ const pkg = require('./package.json')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const libraryName = pkg.name
 
-const plugins = [
+
+
+plugins = [
   new ExtractTextPlugin({
-    filename: './bundle.css',
-    allChunks: true
+    filename: 'bundle.css',
+    allChunks: true,
   }),
-  new webpack.optimize.ModuleConcatenationPlugin(),
+  new webpack.optimize.ModuleConcatenationPlugin()
 ]
 
 const config = {
   entry: [
     path.resolve(__dirname, './src/index.js'),
-    path.resolve(__dirname, './styles/app.css')
+    path.resolve(__dirname, './styles/app.styl')
   ],
   devtool: 'source-map',
   output: {
@@ -38,9 +40,16 @@ const config = {
         exclude: /node_modules/
       },
       {
-        test: /\.css$/,
+        test: /\.(css|styl)$/,
         use: ExtractTextPlugin.extract({
-          use: 'css-loader?importLoaders=1'
+          use: [
+            {
+              loader: "css-loader" // translates CSS into CommonJS
+            },
+            {
+              loader: "stylus-loader" // compiles Stylus to CSS
+            }
+          ]
         })
       }
     ]
