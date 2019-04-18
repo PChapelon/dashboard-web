@@ -57,6 +57,7 @@
   },
   "dependencies": {
     "@hyperapp/logger": "^0.4.1",
+    "babel-preset-react": "^6.24.1",
     "hyperapp": "^1.1.2",
     "ramda": "^0.25.0"
   }

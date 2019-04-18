@@ -3,7 +3,7 @@ import { app } from 'hyperapp'
 
 import exampleActions from './actions'
 import exampleState from './state'
-import exampleView from './components/views/Counter'
+import exampleView from './components/views/App'
 
 /*
 La fonction app est la fonction qui sert à dessiner l'application javascript sur le navigateur
