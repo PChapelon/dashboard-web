@@ -1,3 +1,4 @@
 export default {
-  filteredCountries: []
+  inputValue: '',
+  countries: []
 }
