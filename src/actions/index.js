@@ -1,4 +1,10 @@
 export default {
-  add: (/* event (e) */) => (state) => ({...state, num: state.num + 1}),
-  sub: (/* event (e) */) => (state) => ({...state, num: state.num - 1})
+  getCountries: (countries) => state =>
+    ({...state,
+      countries: countries
+    }),
+  filterCountries: (input) => state =>
+    ({...state,
+      filteredCountries: state.countries.filter((country) => country.name.toLowerCase().includes(input.toLowerCase()))
+    })
 }
