@@ -9,7 +9,9 @@ export default {
     }),
   filterCountries: () => state =>
     ({...state,
-      countries: state.countries.map(item => item.name.toLowerCase().includes(state.inputValue.toLowerCase()) ? {...item, filtered: true} : {...item, filtered: false})
+      countries: state.countries
+        .map((item) => item.name.toLowerCase().includes(state.inputValue.toLowerCase()) ? {...item, includes: true} : {...item, includes: false})
+        .map((item) => item.name.toLowerCase().startsWith(state.inputValue.toLowerCase()) ? {...item, startsWith: true} : {...item, startsWith: false})
     }),
   toggleCountry: (numericCode) => state =>
     ({...state,
