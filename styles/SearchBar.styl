@@ -1,2 +1,54 @@
-h1
-  color gray
+.searchBar
+  display flex
+  flex-direction column
+  padding 10px
+.searchBar__input
+  display flex
+  align-items center
+  background-color white
+  border-top-left-radius 5px
+  border-top-right-radius 5px
+  overflow hidden
+  input
+    flex 1
+    height 40px 
+    padding 0px 10px
+    border none
+    border-bottom 1px solid blue
+.searchBar__counter
+  display flex
+  height 40px
+  align-items center
+  justify-content center
+  padding-right 10px
+  border-bottom 1px solid blue
+  span
+    font-weight bold
+input[type=checkbox]
+  display none
+.searchBarList
+  background-color white
+  border-bottom-left-radius 5px
+  border-bottom-right-radius 5px
+  overflow hidden
+.searchBarList__item
+  display flex
+  align-items center
+  justify-content space-between
+  min-height 40px
+  padding 10px
+  cursor pointer
+  &:hover
+    background-color rgba(grey, 0.1)
+  &.disabled
+    color lightGrey
+    cursor auto
+    background-color white
+.searchBar__background 
+  width 100vw
+  height 100vh
+  position absolute
+  top 0
+  left 0
+  background rgba(grey, 0.05)
+  z-index -999

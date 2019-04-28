@@ -8,6 +8,9 @@ function initCountries (actions) {
 }
 
 export default (state, actions) =>
-  <div oncreate={() => initCountries(actions)}>
-    <SearchBar state={state} actions={actions}/>
+  <div className='app' oncreate={() => initCountries(actions)} onclick={() => actions.setInputFocus(false)}>
+    <div className='app__header'>
+      <h1 className='app__title'>Gl<i className='material-icons'>public</i>balize</h1>
+      <SearchBar state={state} actions={actions}/>
+    </div>
   </div>

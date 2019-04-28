@@ -1,7 +1,11 @@
 export default {
   setInputValue: (inputValue) => state =>
     ({...state,
-      inputValue: inputValue
+      inputValue: inputValue.trim()
+    }),
+  setInputFocus: (focus) => state =>
+    ({...state,
+      inputFocus: focus
     }),
   getCountries: (countries) => state =>
     ({...state,
@@ -16,5 +20,9 @@ export default {
   toggleCountry: (numericCode) => state =>
     ({...state,
       countries: state.countries.map((item) => item.numericCode === numericCode ? {...item, checked: !item.checked} : item)
+    }),
+  countSelectedCountries: () => state =>
+    ({...state,
+      nbSelectedCountries: state.countries.reduce((acc, item) => (item.checked === true) ? acc + 1 : acc, 0)
     })
 }

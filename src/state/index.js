@@ -1,6 +1,6 @@
 export default {
   inputValue: '',
+  inputFocus: false,
   countries: [],
-  filteredCountries: [],
-  selectedCountries: []
+  nbSelectedCountries: 0
 }

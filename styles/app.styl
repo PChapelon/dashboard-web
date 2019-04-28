@@ -1,7 +1,33 @@
-// Import all stylus files here (.styl)
+// Color variables
+blue = #0facf3
+lightGrey = #d6d0c4
+grey = #91897e
+darkGrey = #282623
 
+//////////////////////////////////////////
+// Import all stylus files here (.styl) //
+//////////////////////////////////////////
+
+// Reset style
+@import reset
 // Search bar style
 @import SearchBar
 // To be continued...
 
 // App style
+body
+  color blue
+  font-family 'arial', sans-serif
+.app
+  height 100vh
+.app__header
+  display flex
+  flex-direction column
+.app__title
+  font-size 30px
+  font-weight normal
+  margin 8px 10px
+  i
+    font-size 30px
+    position relative
+    top 4px
