@@ -1,16 +1,15 @@
 .searchBar
   display flex
   flex-direction column
-  padding 10px
+  margin 10px
+  border-radius 5px
+  overflow hidden
+  &.focus
+    box-shadow 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12)
 .searchBar__input
   display flex
   align-items center
   background-color white
-  border-top-left-radius 5px
-  border-top-right-radius 5px
-  overflow hidden
-  &.focus
-    box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
   input
     flex 1
     height 40px 
@@ -40,11 +39,6 @@ input[type=checkbox]
   display none
 .searchBarList
   background-color white
-  border-bottom-left-radius 5px
-  border-bottom-right-radius 5px
-  overflow hidden
-  &.focus
-    box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 .searchBarList__item
   display flex
   align-items center

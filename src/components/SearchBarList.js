@@ -7,7 +7,7 @@ function renderItem (item, props) {
   </label>)
 }
 export default (props) =>
-  <div className={props.state.inputFocus ? 'searchBarList focus' : 'searchBarList'}>
+  <div className='searchBarList'>
     {props.state.inputValue.length >= 2 && props.state.inputFocus && 
     props.state.countries.map((item) => item.includes && item.startsWith && renderItem(item, props))}
     {props.state.inputValue.length >= 3 && props.state.inputFocus && 

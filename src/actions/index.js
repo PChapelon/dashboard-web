@@ -11,6 +11,12 @@ export default {
     ({...state,
       countries: countries
     }),
+  resetCountries: () => state =>
+    ({...state,
+      inputValue: '',
+      nbSelectedCountries: 0,
+      countries: state.countries.map((item) => ({...item, checked: false, includes: false, startsWith: false}))
+    }),
   filterCountries: () => state =>
     ({...state,
       countries: state.countries
