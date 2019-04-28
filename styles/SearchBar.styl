@@ -9,6 +9,8 @@
   border-top-left-radius 5px
   border-top-right-radius 5px
   overflow hidden
+  &.focus
+    box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
   input
     flex 1
     height 40px 
@@ -24,6 +26,16 @@
   border-bottom 1px solid blue
   span
     font-weight bold
+  .searchBar__counterFull
+    display flex
+    align-items center
+    justify-content center
+    width 20px
+    height 20px
+    margin 4px
+    border-radius 100%
+    background-color blue
+    color white
 input[type=checkbox]
   display none
 .searchBarList
@@ -31,6 +43,8 @@ input[type=checkbox]
   border-bottom-left-radius 5px
   border-bottom-right-radius 5px
   overflow hidden
+  &.focus
+    box-shadow 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23)
 .searchBarList__item
   display flex
   align-items center
