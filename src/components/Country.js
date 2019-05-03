@@ -24,7 +24,7 @@ function renderCountry (item) {
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Population Density</span>
-        <span>{ (item.population + '/' + item.area).toFixed(2) }</span>
+        <span>{ (item.population / item.area).toFixed(2) }</span>
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Language</span>
