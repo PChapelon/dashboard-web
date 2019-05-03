@@ -1,5 +1,6 @@
 import { h } from 'hyperapp'
 import SearchBar from '../SearchBar'
+import CountriesList from '../CountriesList'
 
 const dataURL = 'https://restcountries.eu/rest/v2/all'
 
@@ -15,5 +16,8 @@ export default (state, actions) =>
         <div className='app__refresh' onclick={() => actions.resetCountries()}><i className='material-icons'>refresh</i></div>
       </div>
       <SearchBar state={state} actions={actions}/>
+    </div>
+    <div className='app__body'>
+      <CountriesList state={state} actions={actions}/>
     </div>
   </div>
