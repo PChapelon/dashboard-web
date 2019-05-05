@@ -43,5 +43,5 @@ function renderCountry (item) {
 
 export default (props) =>
   <div className='countriesList_content' onclick={() => { console.log(props.state) }}>
-    { props.state.countries.map((item) => item.checked ? renderCountry(item) : console.log())}
+    { props.state.countries.map((item) => item.checked ? renderCountry(item) : console.log()) }
   </div>

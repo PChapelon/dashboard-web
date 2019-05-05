@@ -30,5 +30,15 @@ export default {
   countSelectedCountries: () => state =>
     ({...state,
       nbSelectedCountries: state.countries.reduce((acc, item) => (item.checked === true) ? acc + 1 : acc, 0)
+    }),
+  sortByPopulation: () => state =>
+    ({
+      ...state,
+      countries: state.countries.sort((a, b) => a.population - b.population)
+    }),
+  sortByGini: () => state =>
+    ({
+      ...state,
+      countries: state.countries.sort((a, b) => a.gini - b.gini)
     })
 }
