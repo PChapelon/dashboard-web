@@ -2,7 +2,7 @@ import { h } from 'hyperapp'
 
 function renderCountry (item) {
   return (
-    <ul className='country'>
+    <ul className='country' style={{order: item.index}}>
       <lh>{ item.name }</lh>
       <li className='detailCountry'>
         <span className='spanTitle'>Capital</span>
@@ -16,7 +16,7 @@ function renderCountry (item) {
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Area</span>
-        <span>{ item.area }km&#xB2;</span>
+        <span>{ item.area === null ? 'NOT SPECIFIED' : item.area } km<sup>2</sup></span>
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Population</span>
@@ -24,7 +24,7 @@ function renderCountry (item) {
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Population Density</span>
-        <span>{ (item.population / item.area).toFixed(2) }</span>
+        <span>{ item.population === null || item.area === null ? 'NOT SPECIFIED' : (item.population / item.area).toFixed(2) }</span>
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Language</span>
@@ -32,7 +32,7 @@ function renderCountry (item) {
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Gini</span>
-        <span>{ item.gini }</span>
+        <span>{ item.gini === null ? 'NOT SPECIFIED' : item.gini }</span>
       </li>
       <li className='detailCountry'>
         <span className='spanTitle'>Currencies</span>
