@@ -3,39 +3,39 @@ import { h } from 'hyperapp'
 function renderCountry (item) {
   return (
     <ul className='country' style={{order: item.index}}>
-      <lh>{ item.name }</lh>
-      <li className='detailCountry'>
-        <span className='spanTitle'>Capital</span>
+      <lh className='country__title'>{ item.name }</lh>
+      <li className='country__detail'>
+        <span className='country__detailTitle'>Capital</span>
         <span>{ item.capital }</span>
       </li>
-      <li className='detailCountry latlng'>
-        <span className='spanTitle'>Lat</span>
+      <li className='country__detail latlng'>
+        <span className='country__detailTitle'>Lat</span>
         <span>{ item.latlng[0] }</span>
-        <span className='spanTitle'>Long</span>
+        <span className='country__detailTitle'>Long</span>
         <span>{ item.latlng[1] }</span>
       </li>
-      <li className='detailCountry'>
-        <span className='spanTitle'>Area</span>
+      <li className='country__detail'>
+        <span className='country__detailTitle'>Area</span>
         <span>{ item.area === null ? 'NOT SPECIFIED' : item.area } km<sup>2</sup></span>
       </li>
-      <li className='detailCountry'>
-        <span className='spanTitle'>Population</span>
+      <li className='country__detail'>
+        <span className='country__detailTitle'>Population</span>
         <span>{ item.population }</span>
       </li>
-      <li className='detailCountry'>
-        <span className='spanTitle'>Population Density</span>
+      <li className='country__detail'>
+        <span className='country__detailTitle'>Population Density</span>
         <span>{ item.population === null || item.area === null ? 'NOT SPECIFIED' : (item.population / item.area).toFixed(2) }</span>
       </li>
-      <li className='detailCountry'>
-        <span className='spanTitle'>Language</span>
+      <li className='country__detail'>
+        <span className='country__detailTitle'>Language</span>
         <span>{ item.languages[0]['name'] }</span>
       </li>
-      <li className='detailCountry'>
-        <span className='spanTitle'>Gini</span>
+      <li className='country__detail'>
+        <span className='country__detailTitle'>Gini</span>
         <span>{ item.gini === null ? 'NOT SPECIFIED' : item.gini }</span>
       </li>
-      <li className='detailCountry'>
-        <span className='spanTitle'>Currencies</span>
+      <li className='country__detail'>
+        <span className='country__detailTitle'>Currencies</span>
         <span>{ item.currencies[0]['name'] }</span>
       </li>
     </ul>)
@@ -43,5 +43,5 @@ function renderCountry (item) {
 
 export default (props) =>
   <div className='countriesList_content' onclick={() => { console.log(props.state) }}>
-    { props.state.countries.map((item) => item.checked ? renderCountry(item) : console.log()) }
+    { props.state.countries.map((item) => item.checked && renderCountry(item)) }
   </div>
