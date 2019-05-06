@@ -2,7 +2,7 @@ import { h } from 'hyperapp'
 
 function renderCountry (item) {
   return (
-    <ul className='country'>
+    <ul className='country' style={{order: item.index}}>
       <lh>{ item.name }</lh>
       <li className='detailCountry'>
         <span className='spanTitle'>Capital</span>
