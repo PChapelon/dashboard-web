@@ -2,6 +2,7 @@ import { h } from 'hyperapp'
 import SearchBar from '../SearchBar'
 import CountriesList from '../CountriesList'
 import SortCheckbox from '../SortCheckbox'
+import ChartCountries from '../ChartCountries'
 
 const dataURL = 'https://restcountries.eu/rest/v2/all'
 
@@ -21,5 +22,6 @@ export default (state, actions) =>
     <div className='app__body' style={state.inputFocus ? {backgroundColor: 'rgba(145,137,126,0.05)'} : {backgroundColor: 'white'}}>
       <SortCheckbox state={state} actions={actions}/>
       <CountriesList state={state} actions={actions}/>
+      <ChartCountries state={state} actions={actions}/>
     </div>
   </div>
