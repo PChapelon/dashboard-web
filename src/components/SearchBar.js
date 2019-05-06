@@ -12,5 +12,4 @@ export default (props) =>
         <SearchBarList state={props.state} actions={props.actions}/>
       </div>
     </div>
-    <div className='searchBar__background' style={props.state.inputFocus ? {display: 'flex'} : {display: 'none'}}></div>
   </div>
