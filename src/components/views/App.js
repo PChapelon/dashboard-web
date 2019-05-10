@@ -20,7 +20,7 @@ export default (state, actions) =>
       <SearchBar state={state} actions={actions}/>
     </div>
     <div className='app__body' style={state.inputFocus ? {backgroundColor: '#f9f9f8'} : {backgroundColor: 'white'}}>
-      <SortCheckbox state={state} actions={actions}/>
+      {/* <SortCheckbox state={state} actions={actions}/> */}
       <CountriesList state={state} actions={actions}/>
       <ChartCountries state={state} actions={actions}/>
     </div>

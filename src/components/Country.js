@@ -1,6 +1,6 @@
 import { h } from 'hyperapp'
 
-function renderCountry (item) {
+function renderCountry (item, props) {
   return (
     <ul className='country' style={{order: item.index}}>
       <lh className='country__title'>{ item.name }</lh>
@@ -21,9 +21,12 @@ function renderCountry (item) {
         <span className='country__detailTitle'>Area</span>
         <span>{ item.area === null ? 'NOT SPECIFIED' : item.area } km<sup>2</sup></span>
       </li>
-      <li className='country__detail'>
-        <span className='country__detailTitle'>Population</span>
-        <span>{ item.population }</span>
+      <li className='country__detail ordered'>
+        <div className='country__detailOrder' onclick={ () => { props.actions.sortBy('population') }}><i className='material-icons'>unfold_more</i></div>
+        <div className='country__detailText'>
+          <span className='country__detailTitle'>Population</span>
+          <span>{ item.population }</span>
+        </div>
       </li>
       <li className='country__detail'>
         <span className='country__detailTitle'>Population Density</span>
@@ -33,9 +36,12 @@ function renderCountry (item) {
         <span className='country__detailTitle'>Language</span>
         <span>{ item.languages[0]['name'] }</span>
       </li>
-      <li className='country__detail'>
-        <span className='country__detailTitle'>Gini</span>
-        <span>{ item.gini === null ? 'NOT SPECIFIED' : item.gini }</span>
+      <li className='country__detail ordered'>
+        <div className='country__detailOrder' onclick={ () => { props.actions.sortBy('gini') }}><i className='material-icons'>unfold_more</i></div>
+        <div className='country__detailText'>
+          <span className='country__detailTitle'>Gini</span>
+          <span>{ item.gini === null ? 'NOT SPECIFIED' : item.gini }</span>
+        </div>
       </li>
       <li className='country__detail'>
         <span className='country__detailTitle'>Currencies</span>
@@ -46,5 +52,5 @@ function renderCountry (item) {
 
 export default (props) =>
   <div className='countriesList_content' onclick={() => { console.log(props.state) }}>
-    { props.state.countries.map((item) => item.checked && renderCountry(item)) }
+    { props.state.countries.map((item) => item.checked && renderCountry(item, props)) }
   </div>
