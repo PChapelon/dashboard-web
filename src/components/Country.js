@@ -13,9 +13,9 @@ function renderCountry (item, props) {
       </li>
       <li className='country__detail latlng'>
         <span className='country__detailTitle'>Lat</span>
-        <span>{ item.latlng[0] }</span>
+        <span>{ Math.round(item.latlng[0] * 100) / 100 }</span>
         <span className='country__detailTitle'>Long</span>
-        <span>{ item.latlng[1] }</span>
+        <span>{ Math.round(item.latlng[1] * 100) / 100 }</span>
       </li>
       <li className='country__detail'>
         <span className='country__detailTitle'>Area</span>
