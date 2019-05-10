@@ -1,11 +1,12 @@
 .searchBar
   display flex
   flex-direction column
+  width calc(100% + -20px)
+  position absolute
   margin 10px
   border-radius 5px
   overflow hidden
-  position absolute
-  width calc(100% + -20px)
+  z-index 999
   &.focus
     box-shadow 0 3px 6px rgba(0,0,0,0.08), 0 3px 6px rgba(0,0,0,0.12)
 .searchBar__input
@@ -56,6 +57,7 @@
     background-color white
 .searchBarList__itemText
   flex 1
+  margin-left 10px
 .searchBar__background 
   width 100vw
   height 100vh
