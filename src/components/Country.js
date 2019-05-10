@@ -3,10 +3,10 @@ import { h } from 'hyperapp'
 function renderCountry (item, props) {
   return (
     <ul className='country' style={{order: item.index}}>
-      <lh className='country__title'>{ item.name }</lh>
-      <li className='country__detail'>
-        <div className='country__flag' style={{backgroundImage: 'url(https://www.countryflags.io/' + item.alpha2Code.toLowerCase() + '/flat/64.png)'}}></div>
-      </li>
+      <lh className='country__title'>
+        <span className='country__titleFlag' style={{backgroundImage: 'url(https://www.countryflags.io/' + item.alpha2Code.toLowerCase() + '/flat/64.png)'}}></span>
+        <span className='country__titleText'>{ item.name }</span>
+      </lh>
       <li className='country__detail'>
         <span className='country__detailTitle'>Capital</span>
         <span>{ item.capital }</span>
