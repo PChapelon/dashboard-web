@@ -1,7 +1,7 @@
 import { h } from 'hyperapp'
 import SearchBar from '../SearchBar'
+import NavigationBar from '../NavigationBar'
 import CountriesList from '../CountriesList'
-import SortCheckbox from '../SortCheckbox'
 import ChartCountries from '../ChartCountries'
 
 const dataURL = 'https://restcountries.eu/rest/v2/all'
@@ -15,9 +15,15 @@ export default (state, actions) =>
     <div className='app__header' style={state.inputFocus ? {backgroundColor: '#f9f9f8'} : {backgroundColor: 'white'}}>
       <div className='app__headerSection'>
         <h1 className='app__title'>Gl<i className='material-icons'>public</i>balize</h1>
-        <div className='app__refresh' onclick={() => actions.resetCountries()}><i className='material-icons'>refresh</i></div>
+        <div className='app__refresh' onclick={() => actions.resetCountries()}>
+          <div className='app__refreshText'>Refresh</div>
+          <div className='app__refreshIcon'>
+            <i className='material-icons'>refresh</i>
+          </div>
+        </div>
       </div>
       <SearchBar state={state} actions={actions}/>
+      <NavigationBar state={state} actions={actions}>No country selected</NavigationBar>
     </div>
     <div className='app__body' style={state.inputFocus ? {backgroundColor: '#f9f9f8'} : {backgroundColor: 'white'}}>
       {/* <SortCheckbox state={state} actions={actions}/> */}
