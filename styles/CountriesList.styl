@@ -3,25 +3,68 @@
   padding 10px
 .country
   margin 0px 10px
-  display flex
-  flex-direction column
+  display grid
+  grid-template-rows repeat(8, 1fr)
+  min-width 300px
+  width 300px
   padding 0px
-
-.country>lh
+  background-color whiteSmoke
+  border-top 5px solid blue
+  border-radius 5px
+  overflow hidden
+.country__title
+  display flex
+  align-items center
+  justify-content center
   text-align center
   text-transform uppercase
-  font-size 20px
-  margin 10px 0
-.detailCountry
+  font-weight bold
+  padding 10px
+.country__titleFlag
+  min-width 40px
+  height 26px
+  background-position center
+  background-size 43px
+  background-repeat no-repeat
+  border-radius 5px
+.country__titleText
+  flex 1
+  margin-right 10px
+.country__detail
   display flex
   flex-direction column
+  justify-content center
+  align-items center
   text-align center
-  margin 10px 0
+  padding 10px
+  color: grey
+  border-top 1px solid lightGray
+  &.ordered
+    flex-direction row
+.country__detailOrder
+    display flex
+    align-items center
+    justify-content center
+    width 40px
+    height 40px
+    color: grey
+    margin-right 10px
+    border-radius 100%
+    transform rotate(90deg)
+    cursor pointer
+    &:hover
+      background-color rgba(lightGrey, 0.5)
+.country__detailText
+    display flex
+    flex-direction column
+    flex 1
+    padding-right 40px
 .latlng
   flex-direction row
   align-items center
   justify-content space-evenly
-.spanTitle
+.country__detailTitle
+  color: blue
   text-transform uppercase
-  margin 5px 0
   font-weight bold
+  margin 5px 0

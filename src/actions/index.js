@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 export default {
   setInputValue: (inputValue) => state =>
     ({...state,
@@ -15,7 +17,11 @@ export default {
     ({...state,
       inputValue: '',
       nbSelectedCountries: 0,
-      countries: state.countries.map((item) => ({...item, checked: false, includes: false, startsWith: false}))
+      countries: state.countries.map((item) => ({...item, checked: false, includes: false, startsWith: false})),
+      order: {
+        lastProperty: 'name',
+        lastOrder: 'asc'
+      }
     }),
   filterCountries: () => state =>
     ({...state,
@@ -31,14 +37,16 @@ export default {
     ({...state,
       nbSelectedCountries: state.countries.reduce((acc, item) => (item.checked === true) ? acc + 1 : acc, 0)
     }),
-  sortByPopulation: () => state =>
-    ({
+  sortBy: (context) => state => {
+    const order = (context.property === state.order.lastProperty) ? ((context.sameOrder === true) ? state.order.lastOrder : ((state.order.lastOrder === 'desc') ? 'asc' : 'desc')) : 'asc'
+    const sortedItem = _.orderBy([...state.countries].filter((item) => item.checked === true), [context.property], [order])
+    return ({
       ...state,
-      countries: state.countries.sort((a, b) => a.population - b.population)
-    }),
-  sortByGini: () => state =>
-    ({
-      ...state,
-      countries: state.countries.sort((a, b) => a.gini - b.gini)
+      order: {
+        lastProperty: context.property,
+        lastOrder: order
+      },
+      countries: state.countries.map((item) => item.checked === true ? {...item, index: sortedItem.findIndex((sorted) => item.numericCode === sorted.numericCode)} : {...item})
     })
+  }
 }
