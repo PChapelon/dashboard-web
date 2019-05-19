@@ -8,7 +8,7 @@ function renderCountry (item, props) {
         <span className='country__titleText'>{ item.name }</span>
         <span className='country__titleFlag' style={{backgroundImage: 'url(https://www.countryflags.io/' + item.alpha2Code.toLowerCase() + '/flat/64.png)'}}></span>
       </lh>
-      <li className='country__detail'>
+      <li className='country__detail' ordered>
         <span className='country__detailTitle'>Capital</span>
         <span>{ item.capital }</span>
       </li>
@@ -19,8 +19,11 @@ function renderCountry (item, props) {
         <span>{ Math.round(item.latlng[1] * 100) / 100 }</span>
       </li>
       <li className='country__detail'>
-        <span className='country__detailTitle'>Area</span>
-        <span>{ item.area === null ? 'NOT SPECIFIED' : item.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') } km<sup>2</sup></span>
+        <div className='country__detailOrder' onclick={ () => { props.actions.sortBy({ property: 'area', sameOrder: false }) }}><i className='material-icons'>unfold_more</i></div>
+        <div className='country__detailText'>
+          <span className='country__detailTitle'>Area</span>
+          <span>{ item.area === null ? 'NOT SPECIFIED' : item.area.toString().replace(/(\d)(?=(\d{3})+(?!\d))/g, '$1,') } km<sup>2</sup></span>
+        </div>
       </li>
       <li className='country__detail ordered'>
         <div className='country__detailOrder' onclick={ () => { props.actions.sortBy({ property: 'population', sameOrder: false }) }}><i className='material-icons'>unfold_more</i></div>
