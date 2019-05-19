@@ -5,6 +5,11 @@ lightGrey = #d6d0c4
 grey = #91897e
 darkGrey = #282623
 
+// Media queries
+tablet = 'screen and (min-width: 48 rem)'
+desktop = 'screen and (min-width : 75rem)'
+// Example of use: @media tablet
+
 //////////////////////////////////////////
 // Import all stylus files here (.styl) //
 //////////////////////////////////////////
@@ -13,6 +18,8 @@ darkGrey = #282623
 @import reset
 // Search bar style
 @import SearchBar
+// Contries list style
+@import NavigationBar
 // Contries list style
 @import CountriesList
 // To be continued...
@@ -26,11 +33,12 @@ body
 .app__header
   display flex
   flex-direction column
-  padding-bottom 60px
 .app__body
   height calc(100% + -120px)
-  overflow auto
+  overflow-y auto
+  overflow-x auto
   background-color white
+
 .app__title
   font-size 30px
   font-weight normal
@@ -48,10 +56,22 @@ body
   display flex
   align-items center
   justify-content center
-  width 40px
   height 40px
   margin 10px
+  font-weight bold
+  text-transform uppercase
+  cursor pointer
+.app__refreshText
+  display none
+  @media tablet
+    display flex
+.app__refreshIcon
+  display flex
+  align-items center
+  justify-content center
+  width 40px
+  height 40px
+  margin-left 10px
   color white
   background-color blue
   border-radius 5px
-  cursor pointer

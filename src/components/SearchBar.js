@@ -8,8 +8,6 @@ export default (props) =>
         <input type='text' value={props.state.inputValue} placeholder={props.state.nbSelectedCountries === 5 ? 'Change countries...' : 'Add countries...'} oninput={ (e) => { props.actions.setInputValue(e.target.value); props.actions.filterCountries() }}/>
         <div className='searchBar__counter'><span className={props.state.nbSelectedCountries === 5 ? 'searchBar__counterFull' : ''}>{props.state.nbSelectedCountries}</span><span>/5</span></div>
       </div>
-      <div className='searchBar__list'>
-        <SearchBarList state={props.state} actions={props.actions}/>
-      </div>
+      <SearchBarList state={props.state} actions={props.actions}/>
     </div>
   </div>
