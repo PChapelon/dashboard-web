@@ -17,6 +17,7 @@ export default {
     ({...state,
       inputValue: '',
       nbSelectedCountries: 0,
+      dataLoaded: false,
       countries: state.countries.map((item) => ({...item, checked: false, includes: false, startsWith: false})),
       order: {
         lastProperty: 'name',
@@ -31,7 +32,8 @@ export default {
     }),
   toggleCountry: (numericCode) => state =>
     ({...state,
-      countries: state.countries.map((item) => item.numericCode === numericCode ? {...item, checked: !item.checked} : item)
+      countries: state.countries.map((item) => item.numericCode === numericCode ? {...item, checked: !item.checked} : item),
+      dataLoaded: state.countries.filter((element) => element.checked).length === 4
     }),
   countSelectedCountries: () => state =>
     ({...state,
