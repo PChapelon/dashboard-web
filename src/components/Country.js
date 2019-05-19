@@ -18,7 +18,7 @@ function renderCountry (item, props) {
         <span className='country__detailTitle'>Long</span>
         <span>{ Math.round(item.latlng[1] * 100) / 100 }</span>
       </li>
-      <li className='country__detail'>
+      <li className='country__detail ordered'>
         <div className='country__detailOrder' onclick={ () => { props.actions.sortBy({ property: 'area', sameOrder: false }) }}><i className='material-icons'>unfold_more</i></div>
         <div className='country__detailText'>
           <span className='country__detailTitle'>Area</span>
